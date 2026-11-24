@@ -6,7 +6,7 @@ const cloudinary = require("../config/cloudinary");
 const storage = new CloudinaryStorage({
   cloudinary,
   params: async (req, file) => {
-    const folder = req.cloudinaryFolder || "matru-krupa/products";
+    const folder = req.cloudinaryFolder || process.env.CLOUDINARY_FOLDER || "matru-krupa/products";
     return {
       folder,
       allowed_formats: ["jpg", "jpeg", "png", "gif", "webp"],
